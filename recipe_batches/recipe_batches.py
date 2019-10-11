@@ -3,7 +3,15 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  multiple = {}
+  for item in recipe:
+    multiple[item] = 0
+    try:
+      multiple[item] = int(ingredients[item]/recipe[item])
+    except KeyError:
+      return 0
+  
+  return min(multiple.values())
 
 
 if __name__ == '__main__':
